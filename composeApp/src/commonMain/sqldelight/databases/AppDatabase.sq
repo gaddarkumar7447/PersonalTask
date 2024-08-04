@@ -13,7 +13,7 @@ INSERT OR REPLACE INTO noteEntity(
     content,
     created,
     status
-) VALUES (?, ?, ?, ?, ?);
+) VALUES (?,?, ?, ?, ?);
 
 getAllNote:
 SELECT * FROM noteEntity;
@@ -22,5 +22,5 @@ getNoteById:
 SELECT * FROM noteEntity WHERE id = ?;
 
 deleteNodeById:
-SELECT * FROM noteEntity WHERE id = ?;
+DELETE FROM noteEntity WHERE id = ?;
 

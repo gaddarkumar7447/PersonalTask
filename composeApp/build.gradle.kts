@@ -8,10 +8,7 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.serializatoin)
-
-    id("app.cash.sqldelight") version "2.0.2"
-
-
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -44,23 +41,21 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            api("androidx.appcompat:appcompat:1.6.1")
-            api("androidx.core:core-ktx:1.10.1")
+            api(libs.androidx.appcompat)
+            api(libs.androidx.core.ktx)
             implementation(libs.androidx.preference.ktx)
-            implementation("app.cash.sqldelight:android-driver:2.0.2")
-
-
+            implementation(libs.android.extension.sqldelight)
         }
 
         iosMain.dependencies {
-            implementation("app.cash.sqldelight:native-driver:2.0.2")
-
-
+            implementation(libs.ios.extension.sqldelight)
         }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -72,19 +67,22 @@ kotlin {
 
             implementation(libs.navigation.compose)
 
-            api("io.insert-koin:koin-core:3.4.3")
-            implementation("io.insert-koin:koin-compose:1.1.0")
-            api("moe.tlaster:precompose:1.5.10")
-            api("moe.tlaster:precompose-viewmodel:1.5.10")
-            api("moe.tlaster:precompose-koin:1.5.10")
+            api(libs.koin.core)
+            api(libs.precompose)
+            api(libs.precompose.viewmodel)
+            api(libs.precompose.koin)
 
             implementation(libs.multiplatform.settings)
             implementation(libs.multiplatform.settings.coroutines)
-            implementation("app.cash.sqldelight:coroutines-extensions:2.0.2")
 
-            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
+            // for the sqldelight (offline database)
+            implementation(libs.common.extension.sqldelight)
 
-            implementation("com.russhwolf:multiplatform-settings:1.1.1")
+            // date and time for kmp
+            implementation(libs.kotlinx.date.time)
+
+            // for the sharedPref - settings
+            implementation(libs.multiplatform.settings)
 
         }
     }
@@ -135,5 +133,9 @@ android {
         debugImplementation(compose.uiTooling)
         implementation(libs.kotlinx.coroutines.android)
     }
+}
+dependencies {
+    implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.core.i18n)
 }
 

@@ -7,8 +7,9 @@ import model.TaskModel
 import domain.repo.TaskRepo
 
 class TaskRepoImpl(private val appDatabase: AppDatabase) : TaskRepo {
+    private val queries = appDatabase.appDatabaseQueries
     override suspend fun insertTask(taskModel: TaskModel) {
-        appDatabase.appDatabaseQueries.insertNote(
+        queries.insertNote(
             id = taskModel.id,
             title = taskModel.title,
             content = taskModel.content,
@@ -22,15 +23,15 @@ class TaskRepoImpl(private val appDatabase: AppDatabase) : TaskRepo {
     }
 
     override suspend fun deleteTaskById(id: Long) {
-        appDatabase.appDatabaseQueries.deleteNodeById(id)
+        queries.deleteNodeById(id)
     }
 
     override suspend fun getNodeById(id: Long): TaskModel? {
-        return appDatabase.appDatabaseQueries.getNoteById(id).executeAsOne().toTask()
+        return queries.getNoteById(id).executeAsOneOrNull()?.toTask()
     }
 
     override suspend fun getAllTask(): List<TaskModel> {
-        return appDatabase.appDatabaseQueries.getAllNote().executeAsList().map {
+        return queries.getAllNote().executeAsList().map {
             TaskModel(
                 id = it.id,
                 title = it.title,

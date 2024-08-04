@@ -1,7 +1,16 @@
 package navigation
 
 object Route {
-    object Signup{
-        const val SighUp = "SignUp"
+    object Auth{
+        const val AuthRoute = "AuthRoute"
+        const val Signup = "Signup"
+        const val Login = "Login"
+    }
+
+
+    object Home{
+        const val HomeRoute = "HomeRoute"
+        const val HomeScreen = "HomeScreen"
+        const val EditScreen = "Edit"
     }
 }

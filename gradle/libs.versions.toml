@@ -11,14 +11,21 @@ androidx-espresso-core = "3.6.1"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
 compose-plugin = "1.6.11"
+coroutinesExtensions = "2.0.2"
 junit = "4.13.2"
 kotlin = "2.0.0"
 koin = "1.1.0"
+koinCore = "3.4.3"
 kamel-image = "0.9.0"
 coroutines = "1.8.0"
+kotlinxDatetime = "0.5.0"
 navigationCompose = "2.7.0-alpha07"
 multiplatformSettings = "1.1.1"
+precomposeKoin = "1.5.10"
 preferenceKtx = "1.2.1"
+material3Android = "1.2.1"
+coreI18n = "1.0.0-alpha01"
+sqldelightVersion = "2.0.2"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -34,13 +41,22 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin" }
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koinCore" }
 kamel-image = { group = "media.kamel", name = "kamel-image", version.ref = "kamel-image" }
 koin-composeVM = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
+kotlinx-date-time = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preferenceKtx" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
 multiplatform-settings-coroutines = { module = "com.russhwolf:multiplatform-settings-coroutines", version.ref = "multiplatformSettings" }
-
+androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
+androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version.ref = "coreI18n" }
+common-extension-sqldelight = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelightVersion" }
+ios-extension-sqldelight = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelightVersion" }
+android-extension-sqldelight = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelightVersion" }
+precompose = { module = "moe.tlaster:precompose", version.ref = "precomposeKoin" }
+precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precomposeKoin" }
+precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precomposeKoin" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -48,4 +64,5 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-serializatoin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref ="kotlin"}
+serializatoin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelightVersion" }

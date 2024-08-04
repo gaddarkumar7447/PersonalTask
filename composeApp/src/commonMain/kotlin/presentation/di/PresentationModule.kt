@@ -5,6 +5,6 @@ import presentation.screens.home.state.HomeScreenViewModel
 import sharedPref.SettingsRepository
 
 val presentationModule = module {
-    factory { HomeScreenViewModel(get(), get(), get()) }
+    factory { HomeScreenViewModel(get(), get(), get(), get()) }
     single { SettingsRepository() }
 }
